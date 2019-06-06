@@ -1,0 +1,35 @@
+.login{
+    .logincontainer{
+        height: 100vh;
+        display: flex;
+        .center{
+            margin:auto;
+            width: 300px;
+        }
+        .imageContainer{
+            margin: auto;
+
+        }
+        .loginForm{
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            
+        }
+    }
+}
+
+.no-display {
+    display: none !important ;
+    transition: opacity 2s !important;
+    opacity: 0 !important;
+}
+.display {
+    position: absolute;
+    width: 80%;
+    top:10vh;
+    left:10%;
+    display: block !important ;
+    transition: opacity 2s !important;
+    opacity: 1 !important;
+  }
