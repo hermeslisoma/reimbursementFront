@@ -2,6 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://titoballon.github.io/myapp",
   "dependencies": {
     "@types/bootstrap": "^4.3.0",
     "@types/classnames": "^2.2.7",
