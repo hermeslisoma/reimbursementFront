@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Card, Button, CardTitle, CardText } from 'reactstrap';
 import { connect } from 'react-redux';
 import {IStoreState} from '../../reducers/state.models'
+import UserInfoCard from './UserInfoCard';
 
 
 class UserInfo extends Component<any,any>  {
@@ -31,17 +31,10 @@ class UserInfo extends Component<any,any>  {
 
         console.log(user)
         return (
-            <div>
-                <Card body outline color="primary" className="mt-5">
-                    <CardTitle className= 'lead text-primary'>Name:</CardTitle>
-                    <p>{user.firstName} {user.lastName}</p>
-                    <CardTitle className= 'lead text-primary'>Email:</CardTitle>
-                    <p> {user.email} </p>
-                    <CardTitle className= 'lead text-primary'>Role:</CardTitle>
-                    <p>{(user.role && user.role.role) || 'role not found'} </p>
-                </Card>
+            <>
+                <UserInfoCard user={user}/>
                
-            </div>
+            </>
         )
     }
 }

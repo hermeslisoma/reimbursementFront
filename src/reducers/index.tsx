@@ -1,17 +1,21 @@
 import { combineReducers } from 'redux';
-import register from './registerReducer';
 import loginReducer from './loginReducer'
 import reimbursementsReducer from './reimbursementsReducer';
 import usersReducer from './usersListReducer'
 import messageReducer from './messageReducer'
+import reimbursementPendingReducer from './reimbursementPendingReducer';
+import userReimbursementReducer from './userReimbursementReducer';
+import reimbursementByPageReducer from './reimbursementByPageReducer';
 
 
 const rootReducer = combineReducers({
-  register,
   loginState :loginReducer,
   reimbursementsListState :reimbursementsReducer,
+  reimbursementsPendingListState : reimbursementPendingReducer,
   usersListState : usersReducer,
-  messageState: messageReducer
+  messageState: messageReducer,
+  userReimbursementState:userReimbursementReducer,
+  reimbursmentByPageState:reimbursementByPageReducer
 });
 
 export default rootReducer;

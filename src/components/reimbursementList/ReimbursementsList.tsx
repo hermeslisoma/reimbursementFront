@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logout } from '../../actions/user.actions';
 import { IStoreState, ILoginState, IReimbursement, IMessageState } from '../../reducers/state.models';
 import { RouteComponentProps } from 'react-router';
 import { getReimbursementsByUser } from '../../actions/reimbursements.actions';
-import {Table,Spinner, Button} from 'reactstrap';
+import {Table,Spinner} from 'reactstrap';
 import AddReimbursement from './AddReimbursement';
 
 interface MyProps extends RouteComponentProps{
     loginState:ILoginState,
-    reimbursementsListState:IReimbursement[],
-    messages:IMessageState,
-    logout:()=>void,
+    reimbursementsListState:IReimbursement[]
     getReimbursementsByUser:(id:number)=>void
     
 }
@@ -78,13 +75,13 @@ render() {
     }
 }
 export const mapDispatchProps = {
-    logout,
     getReimbursementsByUser
 
 }
 const mapStateToProps = (state:IStoreState) =>{
     return {
         loginState:state.loginState,
+        reimbursementsPendingListState:state.reimbursementsPendingListState,
         reimbursementsListState: state.reimbursementsListState,
         messages:state.messageState
 

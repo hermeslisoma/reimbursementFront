@@ -83,13 +83,13 @@ class Header extends Component<MyProps,any>{
                     </DropdownToggle>
                     <DropdownMenu>
                     <DropdownItem disabled>By Status</DropdownItem>
-                    <DropdownItem>Pending</DropdownItem>
+                    <DropdownItem><Link to ='/reimbursements/pending' className="nav-link ">Pending</Link></DropdownItem>
                     <DropdownItem>Approved</DropdownItem>
                     <DropdownItem>Denied</DropdownItem>
                     <DropdownItem divider />
-                    <DropdownItem>By User</DropdownItem>
+                    <DropdownItem><Link to = "/reimbursements/users"  className="nav-link ">By User</Link></DropdownItem>
                     <DropdownItem divider />
-                    <DropdownItem>All</DropdownItem>
+                    <DropdownItem><Link to = "/all/reimbursements"  className="nav-link ">All</Link></DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
                     

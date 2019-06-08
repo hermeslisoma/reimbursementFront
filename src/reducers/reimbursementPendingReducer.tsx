@@ -8,8 +8,8 @@ export default function(state = initialState, action:any) {
   
   
   switch(action.type) {
-    case types.GET_REIMBURSEMENTS_BY_ID_SUCCESS:
-      let reimList:IReimbursement[];
+    case types.GET_REIMBURSEMENTS_BY_STATUS_SUCCESS:
+        let reimList:IReimbursement[];
       if(response.status==204) {
         //store.dispatch(setMessage("hola"))
         reimList = []
@@ -19,13 +19,17 @@ export default function(state = initialState, action:any) {
         
         return [...reimList ];
       }
-    case types.ADD_REIMBURSEMENT_SUCCESS:
-      if (response.status==201){
-        return [...state,response.data]
-      }else{
-        return [...state]
-      } 
+    case types.UPDATE_REIMBURSEMENT_SUCSESS:
+        let updateItem:IReimbursement;
+        if(response.status==200) {
+          updateItem = response.data
+          let newList = state.filter((u)=>u.reimbursement_id!=updateItem.reimbursement_id)
+          return [ ...newList ];
+        }else{
+          
+          return [...state ];
+        }
     default:
           return [...state] ;
   }
-};       
+};  

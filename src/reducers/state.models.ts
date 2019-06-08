@@ -4,7 +4,17 @@ export interface IStoreState{
   loginState:ILoginState,
   usersListState:IUserListItem[],
   reimbursementsListState   : IReimbursement[],
-  messageState:IMessageState
+  reimbursementsPendingListState: IReimbursement[],
+  messageState:IMessageState,
+  userReimbursementState:IReimbursmentUserState,
+  reimbursmentByPageState:IPagesReimbursements
+}
+export interface IPagesReimbursements{
+  reimbursementList:IReimbursement[],
+  currentUrl:string;
+  pageCount:number;
+  pagesUrl:string[];
+
 }
 export interface IMessageState{
   message:Object;
@@ -19,6 +29,17 @@ export interface ILoginState{
     response?:{
       message?:string
     }
+}
+export interface IReimbursmentUserState{
+  id: number, // primary key
+  userName: string,// not null, unique
+  firstName: string, // not null
+  lastName:string,
+  email: string, // not null
+  role: {
+    id:number,
+    role:string
+  }
 }
 
 export interface IUserListItem{

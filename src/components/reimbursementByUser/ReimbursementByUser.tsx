@@ -1,27 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import {Table,Spinner} from 'reactstrap';
-import { IStoreState, ILoginState, IMessageState, IUserListItem } from '../../reducers/state.models';
 import { getAllUsers } from '../../actions/userList.actions';
-import { clearMessage } from '../../actions/message.action';
-import UserRecord from './UserRecord';
+import { IStoreState, IUserListItem, ILoginState } from '../../reducers/state.models';
+import {Table,Spinner} from 'reactstrap';
+import UserRecordWithReimbursement from './UserRecordWithReimbursement';
+import { RouteComponentProps } from 'react-router-dom';
+import { History } from 'history';
 
-interface MyProps {
-    value?:string
-    history?:any,
-    dispatch:any,
+interface Myprops extends RouteComponentProps {
     usersListState:IUserListItem[],
-    loginState:ILoginState,
-    getAllUsers:()=>(any),
-    clearMessage:()=>(void)
+    loginState: ILoginState,
+    getAllUsers:()=>{},
+    history:History
+
 }
 
-class UsersList extends Component<MyProps,any> {
+class ReimbursementByUser extends Component<Myprops,any>{
     
     componentDidMount(){
-        console.log('component did mount::', this.props)
+        console.log('reimbursement component mount::', this.props)
         if(this.props.loginState.isAuthenticated){
-            console.log('component did mount::', this.props)
             this.props.getAllUsers();
         }else{
             console.log(`i'm not authenticated`)
@@ -46,7 +44,7 @@ render() {
         let list:any;
         if (this.props.usersListState[0]){
             list = [...this.props.usersListState].map((u)=>
-                (<UserRecord key ={u.id} user={u} />
+                (<UserRecordWithReimbursement key ={u.id} user={u} history= {this.props.history} />
                 )
             )
         }
@@ -62,7 +60,7 @@ render() {
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Role</th>
-                        <th>Actions</th>
+                        <th>Reimbursements</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -75,7 +73,6 @@ render() {
         )
     }
 }
-
 export const mapDispatchToProps = {
     getAllUsers,
 };
@@ -85,4 +82,4 @@ const mapStateToProps = (state:IStoreState) =>{
         loginState:    state.loginState
     };
 }
-export default connect(mapStateToProps,mapDispatchToProps)(UsersList);
+export default connect(mapStateToProps,mapDispatchToProps)(ReimbursementByUser)

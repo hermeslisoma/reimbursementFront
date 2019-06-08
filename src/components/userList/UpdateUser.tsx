@@ -6,11 +6,14 @@ import { connect } from 'react-redux';
 
 
 interface myProps{
-    updateUserAction:()=>{},
-    loginState:ILoginState
+    updateUserAction:(userId:any,user:any)=>{},
+    loginState:ILoginState,
     user:IUserListItem
 }
- class UpdateUser extends Component<any,any>{
+interface myState{
+    modal:boolean
+}
+ class UpdateUser extends Component<myProps,myState>{
     state = {
         modal:false
     }
@@ -34,7 +37,7 @@ interface myProps{
       }
     updateUser = (e)=>{
         e.preventDefault();
-        let userToUpdate = {
+        let userToUpdate:any = {
             userName : this.usernameRef.value,
             firstName:  this.firstnameRef.value,
             lastName: this.lastnameRef.value,
@@ -55,7 +58,7 @@ interface myProps{
         return (
             <>
                 <i onClick={this.toggle} className="text-warning fas fa-edit"></i>
-                <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} className={this.props.className}>
+                <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
             <ModalHeader toggle={this.toggle}>Make changes and save</ModalHeader>
             <ModalBody>
                 <form  onSubmit={this.updateUser} className=''>
@@ -122,7 +125,7 @@ interface myProps{
                         <select 
                             className='form-control'
                             ref={input=>this.roleRef= input}
-                            defaultValue = {role.id}  
+                            defaultValue = {String(role.id)}  
                                 >
                             <option value="1">Admin</option>
                             <option value="2">Finance Manager</option>
