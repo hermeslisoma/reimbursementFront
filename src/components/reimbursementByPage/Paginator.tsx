@@ -3,7 +3,13 @@ import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import { getReimbursementsByPage } from '../../actions/reimbursements.actions';
 import { IStoreState } from '../../reducers/state.models';
 import { connect } from 'react-redux';
+import RouteComponentProps from 'react-router-dom'
 
+interface myProps extends RouteComponentProps{
+    getReimbursementsByPage:(page:number)=>{},
+    loginState:ILoginState,
+    reimbursmentByPageState:IPagesReimbursements
+}
 class Paginator extends React.Component {
   render() {
     return (
