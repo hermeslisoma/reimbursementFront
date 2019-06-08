@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Paginator from './Paginator';
 import ReimbursementPage from './ReimbursementPage';
 import { connect } from 'react-redux';
 import { IStoreState, ILoginState, IPagesReimbursements } from '../../reducers/state.models';
 import { getReimbursementsByPage } from '../../actions/reimbursements.actions';
 import { RouteComponentProps } from 'react-router-dom';
+import PaginatorController from './PaginatorController';
 
 interface myProps extends RouteComponentProps{
     getReimbursementsByPage:(page:number)=>{},
@@ -37,9 +37,10 @@ class ReimbursementByPage extends Component <myProps,any>{
     render() {
         return (
             <>
+            <p className='display-4 mt-5'>All Reimbursment by Page</p>
                 <ReimbursementPage/>
 
-                <Paginator/>
+                <PaginatorController/>
             </>
         )
     }

@@ -51,7 +51,9 @@ render() {
 
         return (
             //todo: 
+            
             <div className="mt-5" >
+                <p className='display-4 mt-5'>Reimbursements by User</p>
                <Table striped>
                     <thead>
                     <tr>
@@ -64,7 +66,7 @@ render() {
                     </tr>
                     </thead>
                     <tbody>
-                        {(this.props.usersListState[0] && list ) || (<tr><td colSpan={5} className="text-center" ><Spinner color="success" /></td></tr>) 
+                        {(this.props.usersListState[0] && list ) || (<tr><td colSpan={6} className="text-center" ><Spinner color="success" /></td></tr>) 
                         }
                     </tbody>
                 </Table>

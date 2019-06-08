@@ -68,7 +68,7 @@ class PendingReimbursements extends Component<any,MyProps> {
                 </tr>
                 </thead>
                 <tbody>
-                    {(this.props.reimbursementsPendingListState[0] && list ) || (<tr><td colSpan={5} className="text-center" ><Spinner color="success" /></td></tr>) 
+                    {(this.props.reimbursementsPendingListState[0] && list ) || (<tr><td colSpan={7} className="text-center" ><Spinner color="success" /></td></tr>) 
                     }
                 </tbody>
             </Table>

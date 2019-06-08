@@ -11,7 +11,7 @@ export interface IStoreState{
 }
 export interface IPagesReimbursements{
   reimbursementList:IReimbursement[],
-  currentUrl:string;
+  currentPage:number;
   pageCount:number;
   pagesUrl:string[];
 

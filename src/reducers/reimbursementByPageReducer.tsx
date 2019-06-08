@@ -3,7 +3,7 @@ import { IPagesReimbursements, IReimbursement } from './state.models';
 
 const initialState:IPagesReimbursements ={
     reimbursementList:[],
-    currentUrl:undefined,
+    currentPage:0,
     pageCount:0,
     pagesUrl:[],
   
@@ -21,7 +21,7 @@ export default function(state = initialState, action:any) {
           reimbursementList:response.data.result,
           pageCount:response.data.pageCount,
           pagesUrl:response.data.pages,
-          currentUrl:response.data.current
+          currentPage:response.data.current
         }
         return {...newPageState };
       }

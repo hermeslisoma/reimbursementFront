@@ -84,8 +84,7 @@ class Header extends Component<MyProps,any>{
                     <DropdownMenu>
                     <DropdownItem disabled>By Status</DropdownItem>
                     <DropdownItem><Link to ='/reimbursements/pending' className="nav-link ">Pending</Link></DropdownItem>
-                    <DropdownItem>Approved</DropdownItem>
-                    <DropdownItem>Denied</DropdownItem>
+                    
                     <DropdownItem divider />
                     <DropdownItem><Link to = "/reimbursements/users"  className="nav-link ">By User</Link></DropdownItem>
                     <DropdownItem divider />

@@ -13,7 +13,7 @@ class ReimbursementPage extends Component <myProps,any>{
     render() {
         const {reimbursementList} = this.props.reimbursmentByPageState
         if(!reimbursementList[0]){
-            return(<>No reimbursements </>)
+            return(<Spinner color="success" />)
         }else{
 
             let list = [...reimbursementList].map((r)=>
