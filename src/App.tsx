@@ -26,7 +26,7 @@ class App extends Component<any,any> {
     const store = configureStore();
     return (
       <Provider store={store} >
-          <BrowserRouter>
+          <BrowserRouter >
            <Header />
           <div className="container">
               
