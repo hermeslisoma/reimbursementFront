@@ -2,11 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-<<<<<<< HEAD
   "homepage": "https://titoballon.github.io/reimbursmentFrontEnd/",
-=======
-  "homepage": "http://titoballon.github.io/myapp",
->>>>>>> cfb1018a49f9defea8e1282e2352a3b85bfa429e
   "dependencies": {
     "@types/bootstrap": "^4.3.0",
     "@types/classnames": "^2.2.7",
