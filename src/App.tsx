@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss'
 import './include/bootstrap'
-import {BrowserRouter, Route,Switch} from 'react-router-dom'
+import {HashRouter, Route,Switch} from 'react-router-dom'
 
 //Components
 import Login from './containers/login/Login';
@@ -26,7 +26,7 @@ class App extends Component<any,any> {
     const store = configureStore();
     return (
       <Provider store={store} >
-          <BrowserRouter basename="/reimbursmentFrontEnd" >
+          <HashRouter basename="/reimbursmentFrontEnd" >
            <Header />
           <div className="container">
               
@@ -45,7 +45,7 @@ class App extends Component<any,any> {
               </Switch> 
           </div>
              
-          </BrowserRouter> 
+          </HashRouter> 
         
         </Provider>
     
