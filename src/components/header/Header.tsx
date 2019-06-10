@@ -37,8 +37,7 @@ class Header extends Component<MyProps,any>{
     }
     logout = ()=>{
         this.props.dispatch(logout());
-        localStorage.removeItem("loginUser")
-        this.props.history.push('/');
+        localStorage.removeItem("loginUser");
     }
     toggle = () => {
             this.setState({
@@ -67,12 +66,13 @@ class Header extends Component<MyProps,any>{
         return ( 
             <div className = "header" >
         <Navbar color="faded" light expand="sm">
-          <NavbarBrand to ='/' className="mr-auto"><img className="img-fluid" src={logo} height='50px' width='50px' alt=""/>  </NavbarBrand>
+          <NavbarBrand to ='/' className="mr-auto"><img className="img-fluid" src={logo} height='50px' width='50px' alt=""/> </NavbarBrand>
+          <span className="displayName">Welcome {this.props.loginState.user.firstName}</span> 
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
           <Nav navbar >
                <NavItem className="nav-item">
-                    <Link to ='' className="nav-link active">Home</Link>
+                    <Link to ='/' className="nav-link active">Home</Link>
                     {//new reimbursment and below list of reimbursements by id
                     }
                 </NavItem>
@@ -112,7 +112,7 @@ class Header extends Component<MyProps,any>{
                     <i className="fas fa-cog"></i>
                     </DropdownToggle>
                     <DropdownMenu right>
-                    <DropdownItem><Link to ='/' className="nav-link" onClick={this.logout} >Log out</Link> </DropdownItem>
+                    <DropdownItem><Link to ='' className="nav-link" onClick={this.logout} >Log out</Link> </DropdownItem>
                     
                     </DropdownMenu>
                 </Dropdown>

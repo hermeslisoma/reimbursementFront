@@ -26,7 +26,7 @@ class App extends Component<any,any> {
     const store = configureStore();
     return (
       <Provider store={store} >
-          <HashRouter basename="/reimbursmentFrontEnd" >
+          <HashRouter>
            <Header />
           <div className="container">
               

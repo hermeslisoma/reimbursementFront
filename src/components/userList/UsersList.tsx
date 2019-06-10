@@ -66,7 +66,7 @@ render() {
                     </tr>
                     </thead>
                     <tbody>
-                        {(this.props.usersListState[0] && list ) || (<tr><td colSpan={5} className="text-center" ><Spinner color="success" /></td></tr>) 
+                        {(this.props.usersListState[0] && list ) || (<tr><td colSpan={6} className="text-center" ><Spinner color="success" /></td></tr>) 
                         }
                     </tbody>
                 </Table>
